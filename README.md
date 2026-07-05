@@ -6,12 +6,18 @@ A responsive, multi-page React mini-game hub built with Vite, Tailwind CSS, and 
 
 - Home, Games, Single Game, About, Contact, and 404 routes
 - Filterable game catalog with reusable cards and shared layout
-- Five client-side games:
+- Ten client-side games:
   - Snake
   - Tic-Tac-Toe
   - Memory Match
   - Rock Paper Scissors
   - Number Guess
+  - Whack-a-Mole
+  - 2048
+  - Flappy Bird
+  - Simon Says
+  - Typing Speed
+- Dark doodle-sticker visual theme with optimized WebP assets and PNG fallbacks
 - Keyboard, mouse, and touch-friendly controls
 - Client-side contact form validation with confirmation state
 

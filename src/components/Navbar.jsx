@@ -15,18 +15,18 @@ export default function Navbar() {
   const linkClass = ({ isActive }) =>
     `rounded-2xl px-3 py-2 text-sm font-semibold transition ${
       isActive
-        ? 'bg-[#fff2cf] text-[#1F2937] shadow-inner ring-1 ring-[#e8c979]/45'
-        : 'text-slate-700 hover:bg-white/80'
+        ? 'bg-white/8 text-slate-50 shadow-[0_0_18px_rgba(92,174,202,0.22)] ring-1 ring-sky/35'
+        : 'text-slate-300 hover:bg-white/8 hover:text-white'
     }`
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/70 bg-white/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#171427]/85 backdrop-blur-xl">
       <nav className="section-wrap flex min-h-20 items-center justify-between gap-4">
         <NavLink className="flex items-center gap-3" to="/" onClick={() => setIsOpen(false)}>
           <span className="grid size-12 place-items-center rounded-2xl bg-[#d97887] text-white shadow-lg shadow-[#d97887]/20">
             <Sparkles size={24} />
           </span>
-          <span className="font-display text-2xl font-extrabold text-[#1F2937]">
+          <span className="font-display text-2xl font-extrabold text-slate-50">
             MiniPlay Hub
           </span>
         </NavLink>
@@ -40,7 +40,7 @@ export default function Navbar() {
         </div>
 
         <button
-          className="grid size-11 place-items-center rounded-2xl bg-white text-[#1F2937] shadow md:hidden"
+          className="grid size-11 place-items-center rounded-2xl bg-white/10 text-slate-50 shadow md:hidden"
           type="button"
           aria-label="Toggle navigation"
           onClick={() => setIsOpen((value) => !value)}

@@ -1,6 +1,7 @@
 import { RotateCcw } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import Button from '../components/Button'
+import ResultSticker from '../components/ResultSticker'
 
 const labels = ['SUN', 'MOON', 'STAR', 'SKY', 'LIME', 'MINT', 'QUIZ', 'PLAY']
 
@@ -61,8 +62,8 @@ export default function MemoryMatch() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-4 shadow">
-        <div className="flex flex-wrap gap-4 font-bold">
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-slate-950/35 p-4 shadow">
+        <div className="flex flex-wrap gap-4 font-bold text-slate-100">
           <p>Moves: {moves}</p>
           <p className="text-[#c96f82]">{won ? 'You Win' : 'Match every pair'}</p>
         </div>
@@ -70,6 +71,7 @@ export default function MemoryMatch() {
           <RotateCcw size={18} /> Restart
         </Button>
       </div>
+      {won && <ResultSticker type="win" />}
       <div className="grid grid-cols-4 gap-3">
         {cards.map((card, index) => {
           const isVisible = flipped.includes(index) || card.matched
@@ -79,7 +81,7 @@ export default function MemoryMatch() {
               className={`aspect-square rounded-2xl text-center font-display text-sm font-extrabold shadow transition duration-200 sm:text-xl ${
                 isVisible
                   ? 'scale-100 text-white'
-                  : 'bg-white text-transparent hover:-translate-y-0.5'
+                  : 'bg-[#171427] text-transparent hover:-translate-y-0.5'
               }`}
               style={isVisible ? { backgroundColor: palette[labels.indexOf(card.label)] } : undefined}
               type="button"

@@ -7,7 +7,7 @@ const variants = {
   primary: 'bg-[#d97887] text-white shadow-[#d97887]/20 hover:bg-[#cc6b7b]',
   blue: 'bg-[#5caeca] text-white shadow-[#5caeca]/20 hover:bg-[#519fba]',
   yellow: 'bg-[#f0d48a] text-[#1F2937] shadow-[#e8c979]/20 hover:bg-[#e6c779]',
-  ghost: 'bg-white/85 text-[#1F2937] shadow-slate-200/80 ring-1 ring-slate-200 hover:bg-white',
+  ghost: 'bg-white/10 text-slate-100 shadow-black/20 ring-1 ring-white/15 hover:bg-white/15',
 }
 
 export default function Button({

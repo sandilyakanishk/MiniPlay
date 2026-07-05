@@ -1,6 +1,7 @@
 import { RotateCcw } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import Button from '../components/Button'
+import ResultSticker from '../components/ResultSticker'
 
 const winningLines = [
   [0, 1, 2],
@@ -44,17 +45,18 @@ export default function TicTacToe() {
 
   return (
     <div className="mx-auto max-w-xl">
-      <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-4 shadow">
-        <p className="font-bold text-[#1F2937]">{status}</p>
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-slate-950/35 p-4 shadow">
+        <p className="font-bold text-slate-100">{status}</p>
         <Button onClick={reset} variant="yellow">
           <RotateCcw size={18} /> Reset
         </Button>
       </div>
+      {(winner || isDraw) && <ResultSticker type={winner ? 'win' : 'gameover'} />}
       <div className="grid aspect-square grid-cols-3 gap-3">
         {board.map((value, index) => (
           <button
             key={index}
-            className="grid place-items-center rounded-2xl bg-white font-display text-6xl font-extrabold text-[#1F2937] shadow transition hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[#6aaecd]/30"
+            className="grid place-items-center rounded-2xl bg-[#171427] font-display text-6xl font-extrabold text-slate-50 shadow transition hover:-translate-y-0.5 active:scale-95 focus:outline-none focus:ring-4 focus:ring-[#6aaecd]/30"
             type="button"
             aria-label={`Square ${index + 1}${value ? ` occupied by ${value}` : ''}`}
             onClick={() => playMove(index)}

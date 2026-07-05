@@ -25,7 +25,7 @@ export default function About() {
         <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#5caeca]">
           About MiniPlay
         </p>
-        <h1 className="font-display text-5xl font-extrabold leading-tight text-[#1F2937]">
+        <h1 className="font-display text-5xl font-extrabold leading-tight text-slate-50">
           A cheerful digital playground for quick games.
         </h1>
       </div>
@@ -35,8 +35,8 @@ export default function About() {
             <span className="mb-5 grid size-14 place-items-center rounded-2xl bg-[#fff0c7]">
               <Icon size={28} />
             </span>
-            <h2 className="font-display text-3xl font-extrabold text-[#1F2937]">{title}</h2>
-            <p className="mt-3 text-sm leading-6 text-slate-600">{text}</p>
+            <h2 className="font-display text-3xl font-extrabold text-slate-50">{title}</h2>
+            <p className="mt-3 text-sm leading-6 text-slate-300">{text}</p>
           </article>
         ))}
       </div>

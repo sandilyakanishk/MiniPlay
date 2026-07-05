@@ -1,6 +1,7 @@
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUp } from 'lucide-react'
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Button from '../components/Button'
+import ResultSticker from '../components/ResultSticker'
 
 const size = 16
 const gridWidth = size
@@ -145,14 +146,15 @@ export default function Snake() {
   return (
     <div className="grid gap-5 lg:grid-cols-[1fr_220px]">
       <div>
-        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-4 shadow">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-slate-950/35 p-4 text-slate-100 shadow">
           <p className="font-bold">Score: {score}</p>
           <p className="font-bold text-[#c96f82]">
             {status === 'lost' ? 'Game Over' : `Direction: ${direction.x ? 'Horizontal' : 'Vertical'}`}
           </p>
         </div>
+        {status === 'lost' && <ResultSticker type="gameover" />}
         <div
-          className="game-stage mx-auto grid aspect-square w-full max-w-[560px] gap-1 rounded-2xl bg-[#1F2937] p-2 shadow-inner"
+          className="game-stage mx-auto grid aspect-square w-full max-w-[560px] gap-1 rounded-2xl bg-[#120f1f] p-2 shadow-inner"
           style={{ gridTemplateColumns: `repeat(${gridWidth}, minmax(0, 1fr))` }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
@@ -184,7 +186,7 @@ export default function Snake() {
           {controls.map(({ label, icon: Icon, direction: nextDirection, slot }) => (
             <button
               key={label}
-              className={`${slot} grid size-16 place-items-center rounded-2xl bg-white text-[#1F2937] shadow transition hover:scale-105 active:scale-95`}
+              className={`${slot} grid size-16 place-items-center rounded-2xl bg-[#171427] text-slate-100 shadow transition hover:scale-105 active:scale-95`}
               type="button"
               aria-label={label}
               onClick={() => changeDirection(nextDirection)}
