@@ -4,11 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        coral: '#FF6B9D',
-        sky: '#5DC1F0',
-        lime: '#8BE87E',
-        sunny: '#FFD93D',
-        lavender: '#B48DE0',
+        coral: '#d97887',
+        sky: '#5caeca',
+        lime: '#83c98b',
+        sunny: '#f0d48a',
+        lavender: '#9d88c9',
         navy: '#1F2937',
       },
       borderRadius: {

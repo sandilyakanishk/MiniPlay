@@ -40,7 +40,7 @@ export default function GamePage() {
     <section className="section-wrap py-8">
       <div className="mb-5 flex flex-wrap items-center justify-between gap-4">
         <div>
-          <Link className="text-sm font-bold text-[#FF6B9D]" to="/games">
+          <Link className="text-sm font-bold text-[#c96f82]" to="/games">
             Back to Games
           </Link>
           <h1 className="font-display text-5xl font-extrabold leading-tight text-[#1F2937]">

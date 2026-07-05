@@ -22,7 +22,7 @@ export default function About() {
   return (
     <section className="section-wrap py-12">
       <div className="max-w-3xl">
-        <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#5DC1F0]">
+        <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#5caeca]">
           About MiniPlay
         </p>
         <h1 className="font-display text-5xl font-extrabold leading-tight text-[#1F2937]">
@@ -32,7 +32,7 @@ export default function About() {
       <div className="mt-8 grid gap-5 md:grid-cols-3">
         {sections.map(({ icon: Icon, title, text }) => (
           <article key={title} className="play-card rounded-2xl p-6">
-            <span className="mb-5 grid size-14 place-items-center rounded-2xl bg-[#FFD93D]/70">
+            <span className="mb-5 grid size-14 place-items-center rounded-2xl bg-[#fff0c7]">
               <Icon size={28} />
             </span>
             <h2 className="font-display text-3xl font-extrabold text-[#1F2937]">{title}</h2>

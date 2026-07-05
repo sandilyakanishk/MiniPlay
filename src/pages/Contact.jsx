@@ -34,7 +34,7 @@ export default function Contact() {
   return (
     <section className="section-wrap grid gap-8 py-12 lg:grid-cols-[0.9fr_1.1fr]">
       <div>
-        <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#FF6B9D]">
+        <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#c96f82]">
           Say hello
         </p>
         <h1 className="font-display text-5xl font-extrabold leading-tight text-[#1F2937]">
@@ -48,7 +48,7 @@ export default function Contact() {
           {[Code2, MessageCircle, Camera, Mail].map((Icon, index) => (
             <a
               key={index}
-              className="grid size-12 place-items-center rounded-2xl bg-white text-[#1F2937] shadow transition hover:-translate-y-0.5 hover:text-[#FF6B9D]"
+              className="grid size-12 place-items-center rounded-2xl bg-white text-[#1F2937] shadow transition hover:-translate-y-0.5 hover:text-[#c96f82]"
               href="#"
               aria-label="Social link"
             >
@@ -63,7 +63,7 @@ export default function Contact() {
           <label key={field} className="mb-5 block">
             <span className="mb-2 block text-sm font-bold capitalize text-slate-700">{field}</span>
             <input
-              className="min-h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 outline-none transition focus:border-[#5DC1F0] focus:ring-4 focus:ring-[#5DC1F0]/20"
+              className="min-h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 outline-none transition focus:border-[#6aaecd] focus:ring-4 focus:ring-[#6aaecd]/20"
               type={field === 'email' ? 'email' : 'text'}
               value={form[field]}
               onChange={(event) => updateField(field, event.target.value)}
@@ -74,7 +74,7 @@ export default function Contact() {
         <label className="mb-5 block">
           <span className="mb-2 block text-sm font-bold text-slate-700">Message</span>
           <textarea
-            className="min-h-36 w-full resize-y rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-[#5DC1F0] focus:ring-4 focus:ring-[#5DC1F0]/20"
+            className="min-h-36 w-full resize-y rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-[#6aaecd] focus:ring-4 focus:ring-[#6aaecd]/20"
             value={form.message}
             onChange={(event) => updateField('message', event.target.value)}
           />
@@ -84,7 +84,7 @@ export default function Contact() {
           <Send size={18} /> Send Message
         </Button>
         {sent && (
-          <p className="mt-4 rounded-2xl bg-[#8BE87E]/30 px-4 py-3 text-sm font-bold text-green-800">
+          <p className="mt-4 rounded-2xl bg-[#83c98b]/25 px-4 py-3 text-sm font-bold text-green-800">
             Message sent. Thanks for reaching out.
           </p>
         )}

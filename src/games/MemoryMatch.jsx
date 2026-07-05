@@ -35,7 +35,7 @@ export default function MemoryMatch() {
       }
       setFlipped([])
       setLocked(false)
-    }, 650)
+    }, 800)
 
     return () => window.clearTimeout(timer)
   }, [cards, flipped])
@@ -48,12 +48,14 @@ export default function MemoryMatch() {
   }
 
   const revealCard = (index) => {
-    if (locked || flipped.includes(index) || cards[index].matched || won) return
+    if (locked || flipped.length >= 2 || flipped.includes(index) || cards[index].matched || won) {
+      return
+    }
     setFlipped((current) => [...current, index])
   }
 
   const palette = useMemo(
-    () => ['#FF6B9D', '#5DC1F0', '#8BE87E', '#FFD93D', '#B48DE0', '#FF9F68', '#7DE5C4', '#1F2937'],
+    () => ['#d97887', '#5caeca', '#83c98b', '#e8c979', '#9d88c9', '#d98d63', '#79cdb4', '#1F2937'],
     [],
   )
 
@@ -62,7 +64,7 @@ export default function MemoryMatch() {
       <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-4 shadow">
         <div className="flex flex-wrap gap-4 font-bold">
           <p>Moves: {moves}</p>
-          <p className="text-[#FF6B9D]">{won ? 'You Win' : 'Match every pair'}</p>
+          <p className="text-[#c96f82]">{won ? 'You Win' : 'Match every pair'}</p>
         </div>
         <Button onClick={reset} variant="yellow">
           <RotateCcw size={18} /> Restart

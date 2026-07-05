@@ -21,7 +21,7 @@ export default function Games() {
   return (
     <section className="section-wrap py-10">
       <div className="mb-8 max-w-3xl">
-        <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#FF6B9D]">All games</p>
+        <p className="text-sm font-bold uppercase tracking-[0.16em] text-[#c96f82]">All games</p>
         <h1 className="font-display text-5xl font-extrabold leading-tight text-[#1F2937]">
           Pick a mini-game and jump in.
         </h1>

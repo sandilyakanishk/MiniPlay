@@ -35,7 +35,7 @@ export default function Footer() {
             ].map(({ icon: Icon, label }) => (
               <a
                 key={label}
-                className="grid size-11 place-items-center rounded-2xl bg-white text-[#1F2937] shadow transition hover:-translate-y-0.5 hover:text-[#FF6B9D]"
+                className="grid size-11 place-items-center rounded-2xl bg-white text-[#1F2937] shadow transition hover:-translate-y-0.5 hover:text-[#c96f82]"
                 href="#"
                 aria-label={label}
               >

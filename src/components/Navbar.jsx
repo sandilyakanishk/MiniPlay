@@ -13,15 +13,17 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const linkClass = ({ isActive }) =>
-    `rounded-2xl px-4 py-2 text-sm font-bold transition ${
-      isActive ? 'bg-[#FFD93D] text-[#1F2937]' : 'text-slate-700 hover:bg-white/80'
+    `rounded-2xl px-3 py-2 text-sm font-semibold transition ${
+      isActive
+        ? 'bg-[#fff2cf] text-[#1F2937] shadow-inner ring-1 ring-[#e8c979]/45'
+        : 'text-slate-700 hover:bg-white/80'
     }`
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/70 bg-white/70 backdrop-blur-xl">
       <nav className="section-wrap flex min-h-20 items-center justify-between gap-4">
         <NavLink className="flex items-center gap-3" to="/" onClick={() => setIsOpen(false)}>
-          <span className="grid size-12 place-items-center rounded-2xl bg-[#FF6B9D] text-white shadow-lg shadow-[#FF6B9D]/25">
+          <span className="grid size-12 place-items-center rounded-2xl bg-[#d97887] text-white shadow-lg shadow-[#d97887]/20">
             <Sparkles size={24} />
           </span>
           <span className="font-display text-2xl font-extrabold text-[#1F2937]">

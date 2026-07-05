@@ -3,6 +3,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Button from '../components/Button'
 
 const size = 16
+const gridWidth = size
+const gridHeight = size
 const startSnake = [
   { x: 7, y: 8 },
   { x: 6, y: 8 },
@@ -29,6 +31,7 @@ export default function Snake() {
   const [status, setStatus] = useState('playing')
   const touchStart = useRef(null)
   const directionRef = useRef(startDirection)
+  const pendingDirectionRef = useRef(startDirection)
 
   const score = snake.length - startSnake.length
 
@@ -37,7 +40,7 @@ export default function Snake() {
       if (status !== 'playing') return
       const current = directionRef.current
       if (current.x + nextDirection.x === 0 && current.y + nextDirection.y === 0) return
-      directionRef.current = nextDirection
+      pendingDirectionRef.current = nextDirection
       setDirection(nextDirection)
     },
     [status],
@@ -45,6 +48,7 @@ export default function Snake() {
 
   const restart = () => {
     directionRef.current = startDirection
+    pendingDirectionRef.current = startDirection
     setSnake(startSnake)
     setFood(randomFood(startSnake))
     setDirection(startDirection)
@@ -80,12 +84,16 @@ export default function Snake() {
     const timer = window.setInterval(() => {
       setSnake((currentSnake) => {
         const head = currentSnake[0]
+        directionRef.current = pendingDirectionRef.current
         const nextHead = {
           x: head.x + directionRef.current.x,
           y: head.y + directionRef.current.y,
         }
         const hitWall =
-          nextHead.x < 0 || nextHead.x >= size || nextHead.y < 0 || nextHead.y >= size
+          nextHead.x < 0 ||
+          nextHead.x >= gridWidth ||
+          nextHead.y < 0 ||
+          nextHead.y >= gridHeight
         const ateFood = sameCell(nextHead, food)
         const nextBody = ateFood ? currentSnake : currentSnake.slice(0, -1)
         const hitSelf = nextBody.some((cell) => sameCell(cell, nextHead))
@@ -105,9 +113,9 @@ export default function Snake() {
   }, [food, status])
 
   const cells = useMemo(() => {
-    return Array.from({ length: size * size }, (_, index) => ({
-      x: index % size,
-      y: Math.floor(index / size),
+    return Array.from({ length: gridWidth * gridHeight }, (_, index) => ({
+      x: index % gridWidth,
+      y: Math.floor(index / gridWidth),
     }))
   }, [])
 
@@ -122,7 +130,9 @@ export default function Snake() {
     const dx = touch.clientX - touchStart.current.x
     const dy = touch.clientY - touchStart.current.y
     if (Math.max(Math.abs(dx), Math.abs(dy)) < 24) return
-    changeDirection(Math.abs(dx) > Math.abs(dy) ? { x: Math.sign(dx), y: 0 } : { x: 0, y: Math.sign(dy) })
+    changeDirection(
+      Math.abs(dx) > Math.abs(dy) ? { x: Math.sign(dx), y: 0 } : { x: 0, y: Math.sign(dy) },
+    )
   }
 
   const controls = [
@@ -137,13 +147,13 @@ export default function Snake() {
       <div>
         <div className="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white p-4 shadow">
           <p className="font-bold">Score: {score}</p>
-          <p className="font-bold text-[#FF6B9D]">
+          <p className="font-bold text-[#c96f82]">
             {status === 'lost' ? 'Game Over' : `Direction: ${direction.x ? 'Horizontal' : 'Vertical'}`}
           </p>
         </div>
         <div
           className="game-stage mx-auto grid aspect-square w-full max-w-[560px] gap-1 rounded-2xl bg-[#1F2937] p-2 shadow-inner"
-          style={{ gridTemplateColumns: `repeat(${size}, minmax(0, 1fr))` }}
+          style={{ gridTemplateColumns: `repeat(${gridWidth}, minmax(0, 1fr))` }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           role="application"
@@ -157,11 +167,11 @@ export default function Snake() {
                 key={`${cell.x}-${cell.y}`}
                 className={`aspect-square rounded-md ${
                   segmentIndex === 0
-                    ? 'bg-[#FFD93D]'
+                    ? 'bg-[#e8c979]'
                     : segmentIndex > 0
-                      ? 'bg-[#8BE87E]'
+                      ? 'bg-[#83c98b]'
                       : isFood
-                        ? 'bg-[#FF6B9D]'
+                        ? 'bg-[#d97887]'
                         : 'bg-white/10'
                 }`}
               />

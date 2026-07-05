@@ -54,12 +54,12 @@ export default function TicTacToe() {
         {board.map((value, index) => (
           <button
             key={index}
-            className="grid place-items-center rounded-2xl bg-white font-display text-6xl font-extrabold text-[#1F2937] shadow transition hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[#5DC1F0]/30"
+            className="grid place-items-center rounded-2xl bg-white font-display text-6xl font-extrabold text-[#1F2937] shadow transition hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-[#6aaecd]/30"
             type="button"
             aria-label={`Square ${index + 1}${value ? ` occupied by ${value}` : ''}`}
             onClick={() => playMove(index)}
           >
-            <span className={value === 'O' ? 'text-[#5DC1F0]' : 'text-[#FF6B9D]'}>
+            <span className={value === 'O' ? 'text-[#5caeca]' : 'text-[#d97887]'}>
               {value}
             </span>
           </button>
